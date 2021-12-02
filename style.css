@@ -12,7 +12,6 @@ body{
     width: 320px;
     height: 100%;
     padding-top: 40px;
-    padding-left: 20px;
     box-sizing: border-box;
     border-right: 1px solid #E5E5E5;
 }
@@ -29,15 +28,18 @@ body{
     outline: none;
     border: none;
     background-color: white;
+    margin-left: 20px;
 }
 
 
 #page{
-    width: 100%;
     height: 100%;
-    padding-left: 20px;
     padding-top: 40px;
     box-sizing: border-box;
+}
+
+.page-content-wrapper{
+    padding-left: 20px;
 }
 
 .page-name{
@@ -46,6 +48,53 @@ body{
 }
 .show{
     display: block;
+}
+
+.nav-bar{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#add-page-button{
+    background-color: #F6F6F6;
+    display: flex;
+    color: #868686;
+    font-weight: bold;
+    align-items: center;
+    justify-content: center;
+    margin: 0px auto;
+}
+
+.button{
+    width: 280px;
+    height: 48px;
+    border-radius: 10px;
+    margin: 10px 0px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-sizing: border-box;
+    padding: 0px 12px;
+}
+
+.button-page-title{
+    color: black;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.button-page-notification{
+    height: 16px;
+    width: 16px;
+    background-color: #E5E5E5;
+    font-size: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 5px;
+    font-weight: bold;
+    color: #868686;
 }
 
 @media screen and (max-width : 720px) {
