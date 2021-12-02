@@ -70,7 +70,7 @@ body{
 .button{
     width: 280px;
     height: 48px;
-    border-radius: 10px;
+    border-radius: 5px;
     margin: 10px 0px;
     display: flex;
     align-items: center;
@@ -93,10 +93,44 @@ body{
     display: flex;
     align-items: center;
     justify-content: center;
-    border-radius: 5px;
+    border-radius: 4px;
     font-weight: bold;
     color: #868686;
 }
+
+.button:hover{
+    background-color: #0F6FFF;
+    cursor: pointer;
+}
+
+.button:hover>.button-page-title{
+    color: white;
+}
+
+.button:hover>.button-page-notification{
+    background-color: #84B5FF;
+    color: white;
+}
+
+
+
+.todo-list{
+    margin-top: 30px;
+    margin-left: 10px;
+}
+
+.todo-list>li{
+    list-style: none;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.todo-list input{
+    width: 16px;
+    height: 16px;
+}
+
+
 
 @media screen and (max-width : 720px) {
     #side-bar>button{

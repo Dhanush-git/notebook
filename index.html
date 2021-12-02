@@ -15,19 +15,25 @@
         <button onclick="hide_menu()" class="menu-button">close menu</button>
         <div id="add-page-button" class="button">+ add new page</div>
         <div class="nav-bar">
+
             <div class="button" id="page-0">
                 <div class="button-page-title">Personal</div>
                 <div class="button-page-notification">5</div>
             </div>
+
         </div>
     </div>
     <div id="page">
         <button onclick="show_menu()" class="menu-button">open menu</button>
         <div class="page-content-wrapper">
+            
             <div class="page-name">Personal</div>
             <div class="todo-list">
-                -- todo list add here --
+                <li><input type="checkbox" name="todo-0" onclick="log()"> Dinner @5pm</li>
+                <li><input type="checkbox" name="todo-1"> Need Milk</li>
+                <li><input type="checkbox" name="todo-2"> Give cloth for dry cleaning</li>
             </div>
+
         </div>
     </div>
 <script src="script.js"></script>
