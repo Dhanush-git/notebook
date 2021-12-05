@@ -143,7 +143,15 @@ body{
     height: 16px;
 }
 
+.page-options{
+    margin: 10px 0px;
+}
 
+.button-small{
+    width: 150;
+    text-align: center;
+    color: red;
+}
 
 @media screen and (max-width : 720px) {
     #side-bar>button{
