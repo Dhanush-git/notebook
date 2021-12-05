@@ -16,7 +16,7 @@ body>h1{
 }
 
 .content-wrapper{
-    margin: 10px 20px;
+    margin: 20px 20px;
 }
 
 .section-name{
@@ -27,4 +27,6 @@ body>h1{
 .section-content{
     margin-top: 10px;
     font-weight: 400;
+    font-size: 15px;
+    line-height: 22px;
 }
