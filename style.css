@@ -16,6 +16,10 @@ body{
     border-right: 1px solid #E5E5E5;
 }
 
+#side-bar a{
+    text-decoration: none;
+}
+
 #side-bar>button{
     display: none;
 }
@@ -64,7 +68,17 @@ body{
     font-weight: bold;
     align-items: center;
     justify-content: center;
-    margin: 0px auto;
+    margin: 5px auto;
+}
+
+#readme-button{
+    background-color: #F6F6F6;
+    display: flex;
+    color: #868686;
+    font-weight: bold;
+    align-items: center;
+    justify-content: center;
+    margin: 5px auto;
 }
 
 .button{
