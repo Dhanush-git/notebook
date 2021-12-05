@@ -1,11 +1,13 @@
 const pageName = document.getElementsByClassName('page-name')[0]
-pageName.addEventListener("click",function(e){rename(e.target.id)})
+if (pageName!=null) {
+    pageName.addEventListener("click",function(e){rename(e.target.id)})
+}
 
 const addPageButton = document.getElementById('add-page-button')
 addPageButton.addEventListener("click",addPage)
 
 const delatePage = document.getElementById('delete-page')
-delatePage.addEventListener("dblclick",function(){alert('are you sure')})
+delatePage.addEventListener("dblclick",deletePage)
 
 const pageNav = document.getElementsByClassName('nav-bar')[0]
 const pages = Array.from(pageNav.children)
@@ -48,7 +50,7 @@ function rename(id) {
 function addPage() {
     const mydata = JSON.parse(localStorage.getItem('db'))
     var new_page = '';
-    if (mydata == null) {
+    if (mydata.length == 0) {
         new_page = {'page-id':1,'page-name':'New Page','page-data':[{'task-id':1,'task-name':'new task','status':false}]}
         
     }else{
@@ -57,6 +59,16 @@ function addPage() {
 
     mydata.push(new_page)
     localStorage.setItem('db',JSON.stringify(mydata))
+    location.reload()
+}
+
+
+function deletePage() {
+    console.log("deleting page")
+    var mydata = JSON.parse(localStorage.getItem('db'))
+    mydata.splice(localStorage.getItem('current_index'),1)
+    localStorage.setItem('db',JSON.stringify(mydata))
+    localStorage.setItem('current_index',0)
     location.reload()
 }
 

@@ -151,6 +151,7 @@ body{
     width: 150;
     text-align: center;
     color: red;
+    cursor: pointer;
 }
 
 @media screen and (max-width : 720px) {

@@ -51,6 +51,16 @@ function populatePage() {
     page_name.id = mydata[id]['page-id']
     page_name.innerHTML = mydata[id]['page-name']
 
+    const page_options = document.createElement("div")
+    page_options.className = "page-options"
+
+    const delete_page = document.createElement("div")
+    delete_page.id = "delete-page"
+    delete_page.className = "button-small"
+    delete_page.innerHTML = "Delete Page"
+
+    page_options.appendChild(delete_page)
+
     const todo_list = document.createElement("div")
     todo_list.classList = "todo-list"
     
@@ -65,6 +75,7 @@ function populatePage() {
     })
 
     page.appendChild(page_name)
+    page.appendChild(page_options)
     page.appendChild(todo_list)
 }
 
