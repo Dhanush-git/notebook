@@ -1,0 +1,30 @@
+html,body{
+    margin: 0px;
+    height: 100%;
+    width: 100%;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
+
+body>h1{
+    margin-top: 40px;
+    margin-left: 20px;
+}
+
+.heading{
+    font-weight: 900;
+}
+
+.content-wrapper{
+    margin: 10px 20px;
+}
+
+.section-name{
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.section-content{
+    margin-top: 10px;
+    font-weight: 400;
+}
