@@ -1,8 +1,11 @@
 const pageName = document.getElementsByClassName('page-name')[0]
-pageName.addEventListener("dblclick",function(e){rename(e.target.id)})
+pageName.addEventListener("click",function(e){rename(e.target.id)})
 
 const addPageButton = document.getElementById('add-page-button')
 addPageButton.addEventListener("click",addPage)
+
+const delatePage = document.getElementById('delete-page')
+delatePage.addEventListener("dblclick",function(){alert('are you sure')})
 
 const pageNav = document.getElementsByClassName('nav-bar')[0]
 const pages = Array.from(pageNav.children)
