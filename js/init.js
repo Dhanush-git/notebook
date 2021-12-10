@@ -28,12 +28,12 @@ function populateNav() {
         new_title.className = "button-page-title"
         new_title.innerHTML = e['page-name']
     
-        const new_page_notification = document.createElement('div')
-        new_page_notification.className = "button-page-notification"
-        new_page_notification.innerHTML = "0"
+        //const new_page_notification = document.createElement('div')
+        // new_page_notification.className = "button-page-notification"
+        // new_page_notification.innerHTML = "0"
     
         new_button.appendChild(new_title)
-        new_button.appendChild(new_page_notification)
+        //new_button.appendChild(new_page_notification)
     
         navBar.appendChild(new_button)
     });
@@ -61,6 +61,11 @@ function populatePage() {
 
     page_options.appendChild(delete_page)
 
+    const task_input = document.createElement("input")
+    task_input.id = "task-input"
+    task_input.type = "text"
+    task_input.placeholder = "add new task here"
+
     const todo_list = document.createElement("div")
     todo_list.classList = "todo-list"
     
@@ -76,6 +81,7 @@ function populatePage() {
 
     page.appendChild(page_name)
     page.appendChild(page_options)
+    page.appendChild(task_input)
     page.appendChild(todo_list)
 }
 
