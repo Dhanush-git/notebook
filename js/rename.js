@@ -18,14 +18,17 @@ if (addTask!=null) {
         if (!e) e = window.event;
         var keyCode = e.code || e.key;
         if (keyCode == 'Enter'){
-        
-          const data = JSON.parse(localStorage.getItem('db'))
-          const newTask = {"task-id":1,"task-name":addTask.value,"status":false}
-          data[localStorage.getItem('current_index')]['page-data'].push(newTask)
-          localStorage.setItem('db',JSON.stringify(data))
-          location.reload()
+            addNewTask(e.code||e.key)
         }
       }
+}
+
+function addNewTask(task) {
+    const data = JSON.parse(localStorage.getItem('db'))
+    const newTask = {"task-id":1,"task-name":task,"status":false}
+    data[localStorage.getItem('current_index')]['page-data'].push(newTask)
+    localStorage.setItem('db',JSON.stringify(data))
+    location.reload()
 }
 
 pages.forEach(e=>{
