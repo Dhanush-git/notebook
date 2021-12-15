@@ -18,7 +18,7 @@ if (addTask!=null) {
         if (!e) e = window.event;
         var keyCode = e.code || e.key;
         if (keyCode == 'Enter'){
-            addNewTask(e.code||e.key)
+            addNewTask(addTask.value)
         }
       }
 }
