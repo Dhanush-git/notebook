@@ -12,6 +12,22 @@ delatePage.addEventListener("dblclick",deletePage)
 const pageNav = document.getElementsByClassName('nav-bar')[0]
 const pages = Array.from(pageNav.children)
 
+const addTask = document.getElementById('task-input')
+if (addTask!=null) {
+    addTask.onkeypress = function(e){
+        if (!e) e = window.event;
+        var keyCode = e.code || e.key;
+        if (keyCode == 'Enter'){
+        
+          const data = JSON.parse(localStorage.getItem('db'))
+          const newTask = {"task-id":1,"task-name":addTask.value,"status":false}
+          data[localStorage.getItem('current_index')]['page-data'].push(newTask)
+          localStorage.setItem('db',JSON.stringify(data))
+          location.reload()
+        }
+      }
+}
+
 pages.forEach(e=>{
     e.addEventListener("click",function(){
         const i = pages.indexOf(e)
