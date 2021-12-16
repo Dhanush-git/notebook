@@ -101,6 +101,7 @@ function addPage() {
     }
 
     mydata.push(new_page)
+    localStorage.setItem('current_index',mydata.length-1)
     localStorage.setItem('db',JSON.stringify(mydata))
     location.reload()
 }
