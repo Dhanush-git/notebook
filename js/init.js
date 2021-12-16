@@ -73,6 +73,9 @@ function populatePage() {
         const new_li = document.createElement('li')
         const new_input = document.createElement('input')
         new_input.type = "checkbox"
+        new_input.name = e['task-id']
+        new_input.className = "check-box"
+        new_input.checked = e['status']
 
         new_li.appendChild(new_input)
         new_li.append(" "+e['task-name'])

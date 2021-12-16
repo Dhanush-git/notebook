@@ -17,18 +17,42 @@ if (addTask!=null) {
     addTask.onkeypress = function(e){
         if (!e) e = window.event;
         var keyCode = e.code || e.key;
-        if (keyCode == 'Enter'){
+        if (keyCode == 'Enter'&& addTask.value!=''){
             addNewTask(addTask.value)
         }
       }
+    
+}
+
+const checkBox = Array.from(document.getElementsByClassName('check-box'))
+if (checkBox!=null) {
+    checkBox.forEach(e=>
+    e.addEventListener('change',function(e){updateCheck(e.target.name)}))
 }
 
 function addNewTask(task) {
     const data = JSON.parse(localStorage.getItem('db'))
-    const newTask = {"task-id":1,"task-name":task,"status":false}
+    const newTask = {"task-id":data[localStorage.getItem('current_index')]['page-data'].at(-1)['task-id']+1,"task-name":task,"status":false}
     data[localStorage.getItem('current_index')]['page-data'].push(newTask)
     localStorage.setItem('db',JSON.stringify(data))
     location.reload()
+}
+
+function updateCheck(id) {
+    console.log("checking");
+    const db = JSON.parse(localStorage.getItem('db'))
+    for (let i = 0; i < db[localStorage.getItem('current_index')]['page-data'].length; i++) {
+        if (db[localStorage.getItem('current_index')]['page-data'][i]['task-id']==id) {
+            console.log(db[localStorage.getItem('current_index')]['page-data'][i]['task-id']);
+            db[localStorage.getItem('current_index')]['page-data'][i]['status']=!db[localStorage.getItem('current_index')]['page-data'][i]['status']
+            
+            localStorage.setItem('db',JSON.stringify(db))
+            console.log(db[localStorage.getItem('current_index')]['page-data']);
+            //location.reload()
+        }
+        
+    }
+    
 }
 
 pages.forEach(e=>{
