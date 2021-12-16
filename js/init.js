@@ -64,7 +64,7 @@ function populatePage() {
     const task_input = document.createElement("input")
     task_input.id = "task-input"
     task_input.type = "text"
-    task_input.placeholder = "add new task here"
+    task_input.placeholder = "add new task here : use /task_index to delete"
 
     const todo_list = document.createElement("div")
     todo_list.classList = "todo-list"
