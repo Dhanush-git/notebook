@@ -21,34 +21,44 @@ if (addTask!=null) {
             addNewTask(addTask.value)
         }
       }
-    
 }
 
 const checkBox = Array.from(document.getElementsByClassName('check-box'))
 if (checkBox!=null) {
-    checkBox.forEach(e=>
-    e.addEventListener('change',function(e){updateCheck(e.target.name)}))
+    checkBox.forEach(e=>{
+        e.addEventListener('change',function(e){updateCheck(e.target.name)})
+    })
 }
 
 function addNewTask(task) {
-    const data = JSON.parse(localStorage.getItem('db'))
-    const newTask = {"task-id":data[localStorage.getItem('current_index')]['page-data'].at(-1)['task-id']+1,"task-name":task,"status":false}
-    data[localStorage.getItem('current_index')]['page-data'].push(newTask)
-    localStorage.setItem('db',JSON.stringify(data))
-    location.reload()
+    if (task[0]=="/") {
+        const id = task[1]
+        console.log("try delete "+id)
+        const data = JSON.parse(localStorage.getItem('db'))
+        data[localStorage.getItem('current_index')]['page-data'].splice(id,1)
+        localStorage.setItem('db',JSON.stringify(data))
+        location.reload()
+    }else{
+        const data = JSON.parse(localStorage.getItem('db'))
+
+        const newTask = {"task-id":(data[localStorage.getItem('current_index')]['page-data'].at(-1)==null)?1:data[localStorage.getItem('current_index')]['page-data'].at(-1)['task-id']+1,"task-name":task,"status":false}
+        data[localStorage.getItem('current_index')]['page-data'].push(newTask)
+        localStorage.setItem('db',JSON.stringify(data))
+        location.reload()   
+    }
 }
 
 function updateCheck(id) {
     console.log("checking");
+    const current_index = localStorage.getItem('current_index')
     const db = JSON.parse(localStorage.getItem('db'))
-    for (let i = 0; i < db[localStorage.getItem('current_index')]['page-data'].length; i++) {
-        if (db[localStorage.getItem('current_index')]['page-data'][i]['task-id']==id) {
-            console.log(db[localStorage.getItem('current_index')]['page-data'][i]['task-id']);
-            db[localStorage.getItem('current_index')]['page-data'][i]['status']=!db[localStorage.getItem('current_index')]['page-data'][i]['status']
+    for (let i = 0; i < db[current_index]['page-data'].length; i++) {
+        if (db[current_index]['page-data'][i]['task-id']==id) {
+            console.log(db[current_index]['page-data'][i]['task-id']);
+            db[current_index]['page-data'][i]['status']=!db[current_index]['page-data'][i]['status']
             
             localStorage.setItem('db',JSON.stringify(db))
-            console.log(db[localStorage.getItem('current_index')]['page-data']);
-            //location.reload()
+            console.log(db[current_index]['page-data']);
         }
         
     }
@@ -108,11 +118,14 @@ function addPage() {
 
 
 function deletePage() {
-    console.log("deleting page")
-    var mydata = JSON.parse(localStorage.getItem('db'))
-    mydata.splice(localStorage.getItem('current_index'),1)
-    localStorage.setItem('db',JSON.stringify(mydata))
-    localStorage.setItem('current_index',0)
-    location.reload()
+    
+    const promt = confirm("Do you want to delete page?")
+    if (promt==true) {
+        var mydata = JSON.parse(localStorage.getItem('db'))
+        mydata.splice(localStorage.getItem('current_index'),1)
+        localStorage.setItem('db',JSON.stringify(mydata))
+        localStorage.setItem('current_index',0)
+        location.reload()
+    }
 }
 
