@@ -79,9 +79,9 @@ body{
 }
 
 #readme-button{
-    background-color: #F6F6F6;
+    background: linear-gradient(135deg, #3f51b5 50%, cyan);
     display: flex;
-    color: #868686;
+    color: white;
     font-weight: bold;
     align-items: center;
     justify-content: center;
