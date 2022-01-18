@@ -179,6 +179,12 @@ body{
 }
 
 @media screen and (max-width : 720px) {
+    .page-content-wrapper{
+        padding: 20px;
+    }
+    #task-input{
+        width: 100%;
+    }
     #side-bar>button{
         display: block;
     }
